@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <header>
+            <img src="WhatsApp Image 2020-03-22 at 19.08.56 (1).jpg" alt="School Logo" class="logo">
+            <h1>Acesso Administrativo</h1>
+            <p>Professores, coordenadores e demais colaboradores da instituição.</p>
+        </header>
+        <form id="loginForm" method="POST">
+            <div class="input-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <p id="errorMessage"></p> <!-- Para mostrar a mensagem de erro -->
+            <button type="submit">Acessar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            // Limpar qualquer mensagem de erro anterior
+            errorMessage.textContent = '';
+
+            if (username === 'admin123' && password === 'admin123') {
+    console.log('Redirecionando para a página de matrícula');
+    window.location.href = "matricula.html";
+}
+ else {
+                errorMessage.textContent = 'Usuário ou senha incorretos. Tente novamente.';
+                errorMessage.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+@import url(global.css);
+@import url(utility.css);
+.btn-primary {
+    background-color: #4CAF50; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    padding: 10px 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    text-decoration: none; /* Remove o sublinhado */
+    display: inline-block; /* Para efeitos de bloco */
+    font-size: 16px; /* Tamanho da fonte */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+}
+
+/* Efeito de hover */
+.btn-primary:hover {
+    background-color: #45a049; /* Cor de fundo ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento de tamanho */
+    cursor: pointer; /* Muda o cursor para mão */
+}

@@ -1,0 +1,233 @@
+/* Global */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores */
+    /* Brand */
+    --brand-light: #F67841;
+    --brand-mid: #F3541C;
+    --brand-dark: #E43A12;
+
+    /* Text */
+    --text-primary: #292524;
+    --text-secondary: #57534E;
+    --text-tertiary: #8F8881;
+    --text-highlight: #E43A12;
+
+    /* Surface */
+    --surface-primary: #FFFFFF;
+    --surface-secondary: #FEE7D6;
+    --surface-disabled: #E7E5E4;
+
+    /* Stroke */
+    --stroke-default: #D6D3D1;
+    --stroke-highlight: #F3541C;
+
+    /* Semantic */
+    --semantic-error: #DC2626;
+
+    /* Supporting */
+    --orange: #F9A474;
+    --yellow: #FEDF6F;
+    --green: #C7D78D;
+    --blue: #B8CEDC;
+    --violet: #C3B2E7;
+    --pink: #F682A5;
+
+    /* Tipografia */
+    /* Curso */
+    --text: 400 1rem/1.5 var(--font-family);
+    --text-SM: 400 0.875rem/1.4 var(--font-family);
+
+    /* Style Guide */
+    --font-family: "Poppins", sans-serif;
+    --text-heading1: bold 32px/120% var(--font-family);
+    --text-heading2: bold 24px/120% var(--font-family);
+    --text-heading3: bold 20px/120% var(--font-family);
+    --text-heading4: bold 16px/120% var(--font-family);
+}
+
+body {
+    background-color: var(--surface-primary);
+    color: var(--text-secondary);
+    overflow: hidden;
+    font: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--text-primary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+main {
+    overflow: auto;
+    padding: 4rem;
+
+    & h1 {
+        font: var(--text-heading1);
+        margin-bottom: .5rem;
+    }
+}
+
+aside {
+    background-color: var(--surface-secondary);
+    padding: 4rem;
+
+    & h2 {
+        font: var(--text-heading2);
+        margin-bottom: .5rem;
+
+        & strong {
+            color: var(--text-highlight);
+        }
+    }
+}
+
+form {
+    margin-top: 3rem;
+}
+
+fieldset {
+    border: none;
+    display: grid;
+    gap: 1.5rem;
+}
+
+legend {
+    font: 600 1rem/1.25 var(--font-family);
+    margin-bottom: 1.5rem;
+}
+
+fieldset + fieldset {
+    margin-top: 3rem;
+}
+
+input,
+select,
+textarea {
+    appearance: none;
+    width: 100%;
+    border-radius: .5rem;
+    border: 2px solid transparent;
+    outline: 1px solid var(--stroke-default);
+    padding: .75rem 1rem;
+    font: var(--text);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+input[type="date"]:focus-within {
+    outline: .25rem solid var(--surface-secondary);
+    border-color: var(--stroke-highlight);
+    outline-offset: .1px;
+}
+
+input[type="date"] {
+    position: relative;
+
+    &::-webkit-calendar-picker-indicator {
+        opacity: 0;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        background: url(../assets/svg/calendar-03.svg) center/contain;
+        right: 1rem;
+        width: 1.25rem;
+        height: 1.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+label {
+    font: var(--text);
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: .25rem;
+}
+
+label + .radio-wrapper {
+    margin-top: 1rem;
+    
+}
+
+select {
+    background: url(../assets/svg/arrow-down-01.svg) no-repeat calc(100% - 1rem);
+}
+
+input {
+    &:disabled {
+        background: var(--surface-disabled);
+        border: 1px solid var(--stroke-default);
+        color: var(--text-primary);
+        cursor: not-allowed;
+    }
+
+    &:invalid {
+        border: 0.25rem solid var(--semantic-error);
+    }
+
+    & + small {
+        font: var(--text-SM);
+        color: var(--text-tertiary);
+        display: inline-block;
+        margin-top: .25rem;
+    }
+
+    &:required + .error{
+        display: flex;
+        align-items: center;
+        gap: .25rem;
+        font: var(--text-SM);
+        color: var(--semantic-error);
+        margin-top: .25rem;
+    }
+
+    &:not(:focus):valid + .error {
+        display: none;
+    }
+}
+
+button {
+    all: unset;
+    font-weight: 500;
+    color: var(--text-highlight);
+    padding: .75rem 1.5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+
+    & .btn-primary {
+        color: white;
+        background-color: var(--brand-dark);
+
+        &:hover,
+        &:focus {
+            background-color: var(--brand-mid);
+        }
+    }
+
+    & .btn-seconday {
+        margin-left: auto;
+        border: 1px solid var(--text-highlight);
+
+        &:hover,
+        &:focus {
+            background-color: var(--brand-dark);
+            outline: .25rem solid var(--surface-secondary);
+        }
+    }
+}
